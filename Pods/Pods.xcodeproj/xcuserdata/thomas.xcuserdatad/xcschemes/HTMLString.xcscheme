@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BA43988E6C9E81C52EC1E7C211F7536A"
+               BuildableName = "HTMLString.framework"
                BlueprintName = "HTMLString"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "HTMLString.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
