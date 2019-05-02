@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9201F272270EA8E0069B42A /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9201F262270EA8E0069B42A /* NetworkController.swift */; };
+		E97C67BD2277555000BCBC2B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C67BC2277555000BCBC2B /* StartViewController.swift */; };
 		E9FF4F0821C2A1120015AFEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF4F0721C2A1120015AFEE /* AppDelegate.swift */; };
 		E9FF4F0A21C2A1120015AFEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF4F0921C2A1120015AFEE /* ViewController.swift */; };
 		E9FF4F0D21C2A1120015AFEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FF4F0B21C2A1120015AFEE /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 		0867C5EC5C6D340FBE142A73 /* Pods-Trivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia.release.xcconfig"; path = "Target Support Files/Pods-Trivia/Pods-Trivia.release.xcconfig"; sourceTree = "<group>"; };
 		72DB050FED667898E428F675 /* Pods-Trivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia.debug.xcconfig"; path = "Target Support Files/Pods-Trivia/Pods-Trivia.debug.xcconfig"; sourceTree = "<group>"; };
 		A30DBF3787CD96B0F7A3C3AC /* Pods_Trivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9201F262270EA8E0069B42A /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		E97C67BC2277555000BCBC2B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		E9FF4F0421C2A1120015AFEE /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FF4F0721C2A1120015AFEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9FF4F0921C2A1120015AFEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +50,6 @@
 				72DB050FED667898E428F675 /* Pods-Trivia.debug.xcconfig */,
 				0867C5EC5C6D340FBE142A73 /* Pods-Trivia.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -74,6 +77,8 @@
 				E9FF4F0721C2A1120015AFEE /* AppDelegate.swift */,
 				E9FF4F0921C2A1120015AFEE /* ViewController.swift */,
 				E9FF4F0B21C2A1120015AFEE /* Main.storyboard */,
+				E97C67BC2277555000BCBC2B /* StartViewController.swift */,
+				E9201F262270EA8E0069B42A /* NetworkController.swift */,
 				E9FF4F0E21C2A1140015AFEE /* Assets.xcassets */,
 				E9FF4F1021C2A1140015AFEE /* LaunchScreen.storyboard */,
 				E9FF4F1321C2A1140015AFEE /* Info.plist */,
@@ -210,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9FF4F0A21C2A1120015AFEE /* ViewController.swift in Sources */,
+				E97C67BD2277555000BCBC2B /* StartViewController.swift in Sources */,
+				E9201F272270EA8E0069B42A /* NetworkController.swift in Sources */,
 				E9FF4F0821C2A1120015AFEE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

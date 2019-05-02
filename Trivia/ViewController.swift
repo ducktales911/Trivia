@@ -9,12 +9,6 @@
 import UIKit
 import HTMLString
 
-let escapedEmoji = "My favorite emoji is &#x1F643;"
-let emoji = escapedEmoji.removingHTMLEntities // "My favorite emoji is 🙃"
-
-let escapedSnack = "Fish &amp; Chips"
-let snack = escapedSnack.removingHTMLEntities // "Fish & Chips"
-
 class ViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
@@ -32,8 +26,6 @@ class ViewController: UIViewController {
         for button in answerButtons {
             button.setTitle("hi", for: .normal)
         }
-        print(emoji)
-        print(snack)
 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
