@@ -13,6 +13,7 @@ class QuestionViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet var answerButtons: [UIButton]!
+    @IBOutlet weak var progressLabel: UILabel!
     
     let questionController = QuestionItemController()
     
@@ -44,17 +45,22 @@ class QuestionViewController: UIViewController {
     
     func updateButtons(answers: [String]) {
         
-        for (index, element) in answers.enumerated() {
-            answerButtons[index].setTitle(element.removingHTMLEntities, for: .normal)
+        // Aantal knoppen = aantal antwoord-opties
+        if answers.count == 2 {
+            answerButtons[2].isHidden = true
+            answerButtons[3].isHidden = true
+        } else {
+            answerButtons[2].isHidden = false
+            answerButtons[3].isHidden = false
         }
-//        answerButtons[0].setTitle(answers[0].removingHTMLEntities, for: .normal)
-//        answerButtons[1].setTitle(answers[1].removingHTMLEntities, for: .normal)
-//        answerButtons[2].setTitle(answers[2].removingHTMLEntities, for: .normal)
-//        answerButtons[3].setTitle(answers[3].removingHTMLEntities, for: .normal)
         
+        // Stel de knoptekst in
+        for (index, element) in answers.enumerated() {            answerButtons[index].setTitle(element.removingHTMLEntities, for: .normal)
+        }
     }
     
     func nextQuestion(number: Int) {
+        self.progressLabel.text = "Question \(questionCounter + 1) of \(items.count)"
         self.questionLabel.text = items[number].question.removingHTMLEntities // laat alleen nog eerste vraag zien
         var allAnswers = items[number].incorrectAnswers + [items[number].correctAnswer]
         allAnswers.shuffle()
@@ -63,14 +69,23 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        print(sender.title(for: .normal)!)
-        if sender.title(for: .normal)! == items[questionCounter].correctAnswer {
-            print("CORRECT!")
-        } else {
-            print("WRONG ANSWER!")
+        if (questionCounter < items.count) {
+            print("items:", items.count)
+            print("questionCounter:", questionCounter)
+            print(sender.title(for: .normal)!)
+            if sender.title(for: .normal)! == items[questionCounter].correctAnswer {
+                print("CORRECT!")
+            } else {
+                print("WRONG ANSWER!")
+            }
+            questionCounter += 1
         }
-        questionCounter += 1
-        nextQuestion(number: questionCounter)
+        if (questionCounter < items.count) {
+            nextQuestion(number: questionCounter)
+        } else {
+            performSegue(withIdentifier: "showHighscore", sender: answerButtons)
+            print("hello")
+        }
     }
     
     

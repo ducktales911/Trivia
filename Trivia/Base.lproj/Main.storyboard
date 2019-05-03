@@ -72,26 +72,39 @@
                                     <constraint firstAttribute="width" constant="200" id="1gc-bL-nQF"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question # of #" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PV-2s-0FW">
+                                <rect key="frame" x="0.0" y="626" width="375" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Z6x-iB-Cji"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3PV-2s-0FW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JBB-Pg-VHD"/>
                             <constraint firstItem="DHf-jA-YBj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LWv-QQ-xIu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3PV-2s-0FW" secondAttribute="trailing" id="NON-qI-hqo"/>
                             <constraint firstItem="4zT-lC-KuY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="O2f-3X-UFH"/>
                             <constraint firstItem="4zT-lC-KuY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZs-Wj-dB7"/>
                             <constraint firstItem="4zT-lC-KuY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="R3G-eb-S1C"/>
                             <constraint firstItem="DHf-jA-YBj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bdG-5f-H46"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4zT-lC-KuY" secondAttribute="trailing" constant="10" id="dM1-Dy-mVV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3PV-2s-0FW" secondAttribute="bottom" constant="20" id="qGJ-IZ-d0o"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trivia" id="yp8-ML-HEp"/>
                     <connections>
+                        <outlet property="progressLabel" destination="3PV-2s-0FW" id="yM0-Yi-W1w"/>
                         <outlet property="questionLabel" destination="4zT-lC-KuY" id="Kt2-tK-1Ry"/>
                         <outletCollection property="answerButtons" destination="chL-qz-8dU" collectionClass="NSMutableArray" id="CDT-rW-ab6"/>
                         <outletCollection property="answerButtons" destination="alc-SU-gPX" collectionClass="NSMutableArray" id="hj0-EK-oVk"/>
                         <outletCollection property="answerButtons" destination="nu1-2s-mPq" collectionClass="NSMutableArray" id="SQ3-X6-Szo"/>
                         <outletCollection property="answerButtons" destination="xGi-6p-dEl" collectionClass="NSMutableArray" id="FPZ-7P-HzU"/>
-                        <segue destination="ev5-yB-iUU" kind="show" id="Yfa-X7-lzi"/>
+                        <segue destination="ev5-yB-iUU" kind="show" identifier="showHighscore" id="Yfa-X7-lzi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
