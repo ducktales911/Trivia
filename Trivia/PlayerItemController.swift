@@ -28,4 +28,20 @@ struct PlayerItemController {
         }
         task.resume()
     }
+    
+    func postItem(player: PlayerItem) {
+        
+        let url = URL(string: "https://ide50-thomashb.legacy.cs50.io:8080/list")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        let postQuery = "name=\(player.name)&score=\(player.score)"
+        request.httpBody = postQuery.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            print(String(bytes: data!, encoding: .utf8)!)
+            
+        }
+        
+        task.resume()
+    }
 }

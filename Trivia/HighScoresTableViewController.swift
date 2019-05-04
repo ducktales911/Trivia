@@ -12,6 +12,8 @@ class HighScoresTableViewController: UITableViewController {
     
     let scoresController = PlayerItemController()
     
+    var thisPlayer = PlayerItem(name: "", score: "")
+    
     var playerItems = [PlayerItem]()
 
     override func viewDidLoad() {

@@ -18,6 +18,8 @@ class QuestionViewController: UIViewController {
     
     let questionController = QuestionItemController()
     
+    let player = PlayerItemController()
+    
     var items = [QuestionItem]()
     
     var score = 0
@@ -89,6 +91,8 @@ class QuestionViewController: UIViewController {
             nextQuestion(number: questionCounter)
         } else {
             print(score)
+            let finalScore = PlayerItem(name: playerName, score: String(score))
+            player.postItem(player: finalScore)
             performSegue(withIdentifier: "showHighscore", sender: answerButtons)
             print("hello")
         }
