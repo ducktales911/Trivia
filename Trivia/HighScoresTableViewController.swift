@@ -24,6 +24,7 @@ class HighScoresTableViewController: UITableViewController {
                 if let playerItems = playerItems {
                     self.playerItems = playerItems
                     print(playerItems)
+                    self.tableView.reloadData()
                 } else {
                     print("Unable to load data.")
                 }
@@ -52,7 +53,7 @@ class HighScoresTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "highScoreCell", for: indexPath)
 
         cell.textLabel?.text = playerItems[indexPath.row].name
-        cell.detailTextLabel?.text = String(playerItems[indexPath.row].score)
+        cell.detailTextLabel?.text = playerItems[indexPath.row].score
         
         return cell
     }
