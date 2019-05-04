@@ -74,6 +74,12 @@ class QuestionViewController: UIViewController {
     
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.3) {
+            sender.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+            sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }
+        
         if (questionCounter < items.count) {
             print("items:", items.count)
             print("questionCounter:", questionCounter)
@@ -107,6 +113,7 @@ class QuestionViewController: UIViewController {
         score = 0
         for button in answerButtons {
             button.setTitle("", for: .normal)
+            button.layer.cornerRadius = 15.0
         }
         print(playerName)
         
