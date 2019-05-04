@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		E919354C227B279000D2FD7B /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E919354B227B279000D2FD7B /* URL+Helpers.swift */; };
 		E919354E227B2A2D00D2FD7B /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E919354D227B2A2D00D2FD7B /* QuestionItem.swift */; };
+		E9193554227D7F0600D2FD7B /* PlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9193553227D7F0600D2FD7B /* PlayerItem.swift */; };
 		E9201F272270EA8E0069B42A /* QuestionItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9201F262270EA8E0069B42A /* QuestionItemController.swift */; };
 		E97C67BD2277555000BCBC2B /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97C67BC2277555000BCBC2B /* StartViewController.swift */; };
+		E9A57FE5227DBD1A0000EEA2 /* PlayerItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A57FE4227DBD1A0000EEA2 /* PlayerItemController.swift */; };
+		E9A57FE7227DC7FF0000EEA2 /* HighScoresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A57FE6227DC7FF0000EEA2 /* HighScoresTableViewController.swift */; };
 		E9FF4F0821C2A1120015AFEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF4F0721C2A1120015AFEE /* AppDelegate.swift */; };
 		E9FF4F0A21C2A1120015AFEE /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FF4F0921C2A1120015AFEE /* QuestionViewController.swift */; };
 		E9FF4F0D21C2A1120015AFEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9FF4F0B21C2A1120015AFEE /* Main.storyboard */; };
@@ -25,8 +28,11 @@
 		A30DBF3787CD96B0F7A3C3AC /* Pods_Trivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E919354B227B279000D2FD7B /* URL+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
 		E919354D227B2A2D00D2FD7B /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
+		E9193553227D7F0600D2FD7B /* PlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerItem.swift; sourceTree = "<group>"; };
 		E9201F262270EA8E0069B42A /* QuestionItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItemController.swift; sourceTree = "<group>"; };
 		E97C67BC2277555000BCBC2B /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		E9A57FE4227DBD1A0000EEA2 /* PlayerItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerItemController.swift; sourceTree = "<group>"; };
+		E9A57FE6227DC7FF0000EEA2 /* HighScoresTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoresTableViewController.swift; sourceTree = "<group>"; };
 		E9FF4F0421C2A1120015AFEE /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9FF4F0721C2A1120015AFEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9FF4F0921C2A1120015AFEE /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +89,9 @@
 				E9FF4F0B21C2A1120015AFEE /* Main.storyboard */,
 				E97C67BC2277555000BCBC2B /* StartViewController.swift */,
 				E9201F262270EA8E0069B42A /* QuestionItemController.swift */,
+				E9A57FE6227DC7FF0000EEA2 /* HighScoresTableViewController.swift */,
+				E9A57FE4227DBD1A0000EEA2 /* PlayerItemController.swift */,
+				E9193553227D7F0600D2FD7B /* PlayerItem.swift */,
 				E919354D227B2A2D00D2FD7B /* QuestionItem.swift */,
 				E919354B227B279000D2FD7B /* URL+Helpers.swift */,
 				E9FF4F0E21C2A1140015AFEE /* Assets.xcassets */,
@@ -224,6 +233,9 @@
 				E919354C227B279000D2FD7B /* URL+Helpers.swift in Sources */,
 				E919354E227B2A2D00D2FD7B /* QuestionItem.swift in Sources */,
 				E97C67BD2277555000BCBC2B /* StartViewController.swift in Sources */,
+				E9193554227D7F0600D2FD7B /* PlayerItem.swift in Sources */,
+				E9A57FE5227DBD1A0000EEA2 /* PlayerItemController.swift in Sources */,
+				E9A57FE7227DC7FF0000EEA2 /* HighScoresTableViewController.swift in Sources */,
 				E9201F272270EA8E0069B42A /* QuestionItemController.swift in Sources */,
 				E9FF4F0821C2A1120015AFEE /* AppDelegate.swift in Sources */,
 			);

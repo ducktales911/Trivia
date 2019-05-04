@@ -19,8 +19,7 @@ struct QuestionItemController {
             completion(nil)
             print("Generating URL with supplied queries failed.")
             return
-        }
-        
+        }        
         print(url)
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -34,9 +33,7 @@ struct QuestionItemController {
                 return
             }
         }
-        
         task.resume()
-
     }
 }
 

@@ -19,8 +19,18 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func startButton(_ sender: Any) {
-        if nameTextField.text != nil {
+        if nameTextField.text != "" {
+            //let player = PlayerItem(name: nameTextField.text!, score: 0)
             performSegue(withIdentifier: "startSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:
+        Any?) {
+        if segue.identifier == "startSegue" {
+            let nav = segue.destination as! UINavigationController
+            let svc = nav.topViewController as! QuestionViewController
+            svc.playerName = nameTextField.text!
         }
     }
     

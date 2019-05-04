@@ -14,16 +14,19 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet var answerButtons: [UIButton]!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     let questionController = QuestionItemController()
     
     var items = [QuestionItem]()
     
+    var score = 0
+    var playerName = ""
+    
     var questionCounter = 0
     
     func fetchQuestions() {
         self.items = []
-        
         let query = [
             "amount": "10"
         ]
@@ -75,6 +78,8 @@ class QuestionViewController: UIViewController {
             print(sender.title(for: .normal)!)
             if sender.title(for: .normal)! == items[questionCounter].correctAnswer {
                 print("CORRECT!")
+                score += 1
+                scoreLabel.text = "Score: \(score)"
             } else {
                 print("WRONG ANSWER!")
             }
@@ -83,6 +88,7 @@ class QuestionViewController: UIViewController {
         if (questionCounter < items.count) {
             nextQuestion(number: questionCounter)
         } else {
+            print(score)
             performSegue(withIdentifier: "showHighscore", sender: answerButtons)
             print("hello")
         }
@@ -94,9 +100,11 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         questionLabel.text = ""
         questionCounter = 0
+        score = 0
         for button in answerButtons {
             button.setTitle("", for: .normal)
         }
+        print(playerName)
         
         fetchQuestions()
 
