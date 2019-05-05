@@ -17,14 +17,10 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     
     let questionController = QuestionItemController()
-    
     let player = PlayerItemController()
-    
     var items = [QuestionItem]()
-    
     var score = 0
     var playerName = ""
-    
     var questionCounter = 0
     
     func fetchQuestions() {
@@ -81,8 +77,6 @@ class QuestionViewController: UIViewController {
         }
         
         if (questionCounter < items.count) {
-            print("items:", items.count)
-            print("questionCounter:", questionCounter)
             print(sender.title(for: .normal)!)
             if sender.title(for: .normal)! == items[questionCounter].correctAnswer {
                 print("CORRECT!")
@@ -100,12 +94,8 @@ class QuestionViewController: UIViewController {
             let finalScore = PlayerItem(name: playerName, score: String(score))
             player.postItem(player: finalScore)
             performSegue(withIdentifier: "showHighscore", sender: answerButtons)
-            print("hello")
         }
     }
-    
-    
-    
     
     override func viewDidLoad() {
         questionLabel.text = ""
@@ -116,13 +106,10 @@ class QuestionViewController: UIViewController {
             button.layer.cornerRadius = 15.0
         }
         print(playerName)
-        
         fetchQuestions()
-
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
 
 }
 

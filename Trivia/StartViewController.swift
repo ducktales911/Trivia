@@ -14,13 +14,10 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func startButton(_ sender: Any) {
         if nameTextField.text != "" {
-            //let player = PlayerItem(name: nameTextField.text!, score: 0)
             performSegue(withIdentifier: "startSegue", sender: nil)
         }
     }

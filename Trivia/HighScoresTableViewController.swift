@@ -53,7 +53,8 @@ class HighScoresTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "highScoreCell", for: indexPath)
-
+        
+        playerItems = playerItems.sorted(by: { $0.score > $1.score} )
         cell.textLabel?.text = playerItems[indexPath.row].name
         cell.detailTextLabel?.text = playerItems[indexPath.row].score
         
