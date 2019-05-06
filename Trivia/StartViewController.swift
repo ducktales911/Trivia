@@ -28,7 +28,7 @@ class StartViewController: UIViewController {
         Any?) {
         if segue.identifier == "startSegue" {
             let nav = segue.destination as! UINavigationController
-            let svc = nav.topViewController as! QuestionViewController
+            let svc = nav.topViewController as! GamePlayViewController
             svc.playerName = nameTextField.text!
         }
     }

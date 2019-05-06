@@ -11,7 +11,7 @@ import HTMLString
 
 struct QuestionItemController {
     
-    func fetchItems(matching query: [String: String], completion: @escaping ([QuestionItem]?) -> Void) {
+    func fetchItems(matching query: [String: String], completion: @escaping ([QuestionModel]?) -> Void) {
         
         let baseURL = URL(string: "https://opentdb.com/api.php?")!
         
@@ -25,7 +25,7 @@ struct QuestionItemController {
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let questionitems = try? jsonDecoder.decode(QuestionItems.self, from: data) {
+                let questionitems = try? jsonDecoder.decode(QuestionList.self, from: data) {
                 completion(questionitems.results)
             } else {
                 print("Either no data was returned, or data was not serialized.")

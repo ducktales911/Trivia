@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct PlayerItem: Codable {
-    var name: String
+struct HighscoreModel: Codable {
+    let name: String
     var score: String
 }
 
 struct PlayerItems: Codable {
-    let results: [PlayerItem]
+    let results: [HighscoreModel]
 }

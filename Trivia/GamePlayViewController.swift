@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GamePlayViewController.swift
 //  Trivia
 //
 //  Created by Thomas Hamburger on 13/12/2018.
@@ -9,22 +9,23 @@
 import UIKit
 import HTMLString
 
-class QuestionViewController: UIViewController {
+class GamePlayViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet var answerButtons: [UIButton]!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var prograssBar: UIView!
     
     let questionController = QuestionItemController()
     let player = PlayerItemController()
-    var items = [QuestionItem]()
+    var allQuestions = [QuestionModel]()
     var score = 0
     var playerName = ""
-    var questionCounter = 0
+    var questionNumber = 0
     
     func fetchQuestions() {
-        self.items = []
+        self.allQuestions = []
         let query = [
             "amount": "10"
         ]
@@ -34,14 +35,23 @@ class QuestionViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 if let items = items {
-                    self.items = items
+                    self.allQuestions = items
                     print(items)
-                    self.nextQuestion(number: self.questionCounter)
+                    self.updateUI(number: self.questionNumber)
                 } else {
                     print("Unable to load data.")
                 }
             }
         })
+    }
+    
+    func updateUI(number: Int) {
+        self.prograssBar.frame.size.width = (view.frame.size.width / CGFloat(allQuestions.count)) * CGFloat(questionNumber + 1)
+        self.progressLabel.text = "\(questionNumber + 1) / \(allQuestions.count)"
+        self.questionLabel.text = allQuestions[number].question.removingHTMLEntities // laat alleen nog eerste vraag zien
+        var allAnswers = allQuestions[number].incorrectAnswers + [allQuestions[number].correctAnswer]
+        allAnswers.shuffle()
+        self.updateButtons(answers: allAnswers)
     }
     
     func updateButtons(answers: [String]) {
@@ -60,15 +70,6 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    func nextQuestion(number: Int) {
-        self.progressLabel.text = "Question \(questionCounter + 1) of \(items.count)"
-        self.questionLabel.text = items[number].question.removingHTMLEntities // laat alleen nog eerste vraag zien
-        var allAnswers = items[number].incorrectAnswers + [items[number].correctAnswer]
-        allAnswers.shuffle()
-        self.updateButtons(answers: allAnswers)
-    }
-    
-    
     @IBAction func buttonTapped(_ sender: UIButton) {
         
         UIView.animate(withDuration: 0.3) {
@@ -76,39 +77,54 @@ class QuestionViewController: UIViewController {
             sender.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
         
-        if (questionCounter < items.count) {
+        if (questionNumber < allQuestions.count) {
             print(sender.title(for: .normal)!)
-            if sender.title(for: .normal)! == items[questionCounter].correctAnswer {
+            if sender.title(for: .normal)! == allQuestions[questionNumber].correctAnswer {
                 print("CORRECT!")
                 score += 1
                 scoreLabel.text = "Score: \(score)"
             } else {
                 print("WRONG ANSWER!")
             }
-            questionCounter += 1
+            questionNumber += 1
         }
-        if (questionCounter < items.count) {
-            nextQuestion(number: questionCounter)
+        if (questionNumber < allQuestions.count) {
+            updateUI(number: questionNumber)
         } else {
-            print(score)
-            let finalScore = PlayerItem(name: playerName, score: String(score))
-            player.postItem(player: finalScore)
-            performSegue(withIdentifier: "showHighscore", sender: answerButtons)
+            showHighScore()
         }
+    }
+    
+    func showHighScore() {
+        print(score)
+        let finalScore = HighscoreModel(name: playerName, score: String(score))
+        player.postItem(player: finalScore)
+        performSegue(withIdentifier: "showHighscore", sender: answerButtons)
     }
     
     override func viewDidLoad() {
         questionLabel.text = ""
-        questionCounter = 0
+        questionNumber = 0
         score = 0
         for button in answerButtons {
             button.setTitle("", for: .normal)
             button.layer.cornerRadius = 15.0
         }
-        print(playerName)
         fetchQuestions()
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
     }
 
 }

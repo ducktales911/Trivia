@@ -1,5 +1,5 @@
 //
-//  QuestionItem.swift
+//  QuestionModel.swift
 //  Trivia
 //
 //  Created by Thomas on 02/05/2019.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct QuestionItem: Codable {
+struct QuestionModel: Codable {
     
-    var question: String
-    var correctAnswer: String
-    var incorrectAnswers: [String]
-    var category: String
-    var difficulty: String
-    var type: String
+    let question: String
+    let correctAnswer: String
+    let incorrectAnswers: [String]
+    let category: String
+    let difficulty: String
+    let type: String
 
     enum CodingKeys: String, CodingKey {
         case question
@@ -27,6 +27,6 @@ struct QuestionItem: Codable {
     }
 }
 
-struct QuestionItems: Codable {
-    let results: [QuestionItem]
+struct QuestionList: Codable {
+    let results: [QuestionModel]
 }

@@ -10,14 +10,14 @@ import Foundation
 
 struct PlayerItemController {
     
-    func fetchItems(completion: @escaping ([PlayerItem]?) -> Void) {
+    func fetchItems(completion: @escaping ([HighscoreModel]?) -> Void) {
         
         let url = URL(string: "https://ide50-thomashb.legacy.cs50.io:8080/list")!
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
-                let scoreItems = try? jsonDecoder.decode([PlayerItem].self, from: data) {
+                let scoreItems = try? jsonDecoder.decode([HighscoreModel].self, from: data) {
                 completion(scoreItems)
                 print(scoreItems)
             } else {
@@ -29,7 +29,7 @@ struct PlayerItemController {
         task.resume()
     }
     
-    func postItem(player: PlayerItem) {
+    func postItem(player: HighscoreModel) {
         
         let url = URL(string: "https://ide50-thomashb.legacy.cs50.io:8080/list")!
         var request = URLRequest(url: url)

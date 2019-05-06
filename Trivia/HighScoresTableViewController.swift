@@ -12,9 +12,9 @@ class HighScoresTableViewController: UITableViewController {
     
     let scoresController = PlayerItemController()
     
-    var thisPlayer = PlayerItem(name: "", score: "")
+    var thisPlayer = HighscoreModel(name: "", score: "")
     
-    var playerItems = [PlayerItem]()
+    var playerItems = [HighscoreModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
