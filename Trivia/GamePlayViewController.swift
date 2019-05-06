@@ -17,8 +17,8 @@ class GamePlayViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var prograssBar: UIView!
     
-    let questionController = QuestionItemController()
-    let player = PlayerItemController()
+    let questionController = TriviaController()
+    let player = HighScoresController()
     var allQuestions = [QuestionModel]()
     var score = 0
     var playerName = ""

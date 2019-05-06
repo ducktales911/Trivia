@@ -10,7 +10,7 @@ import UIKit
 
 class HighScoresTableViewController: UITableViewController {
     
-    let scoresController = PlayerItemController()
+    let scoresController = HighScoresController()
     
     var thisPlayer = HighscoreModel(name: "", score: "")
     

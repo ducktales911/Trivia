@@ -1,5 +1,5 @@
 //
-//  QuestionItemController.swift
+//  TriviaController.swift
 //  Trivia
 //
 //  Created by Thomas on 24/04/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import HTMLString
 
-struct QuestionItemController {
+struct TriviaController {
     
     func fetchItems(matching query: [String: String], completion: @escaping ([QuestionModel]?) -> Void) {
         

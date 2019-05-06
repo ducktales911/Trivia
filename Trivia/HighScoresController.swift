@@ -1,5 +1,5 @@
 //
-//  PlayerItemController.swift
+//  HighScoresController.swift
 //  Trivia
 //
 //  Created by Thomas on 04/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlayerItemController {
+struct HighScoresController {
     
     func fetchItems(completion: @escaping ([HighscoreModel]?) -> Void) {
         
