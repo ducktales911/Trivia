@@ -8,8 +8,9 @@
 
 import Foundation
 
+// Wordt gebruikt om een enkele alle attributen van een enkele vraag in op te slaan.
 struct QuestionModel: Codable {
-    
+
     let question: String
     let correctAnswer: String
     let incorrectAnswers: [String]
@@ -27,6 +28,7 @@ struct QuestionModel: Codable {
     }
 }
 
+// Wordt gebruikt om alle QuestionModel objecten in op te slaan.
 struct QuestionList: Codable {
     let results: [QuestionModel]
 }

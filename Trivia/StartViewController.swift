@@ -10,38 +10,28 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    // Voor invoer van de gebruikersnaam die uiteindelijk in de High Score komt.
     @IBOutlet weak var nameTextField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
+    // Voert de segue naar GamePlayViewController uit.
     @IBAction func startButton(_ sender: Any) {
         if nameTextField.text != "" {
             performSegue(withIdentifier: "startSegue", sender: nil)
         }
     }
-    
+
+    // Nodig voor de "New Game" knop in HighScoreTableViewController.
     @IBAction func unwindToStart(_ sender: UIStoryboardSegue) {}
-    
-    override func prepare(for segue: UIStoryboardSegue, sender:
-        Any?) {
+
+    // Segue naar de GamePlayViewController, zodat het spel begint.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startSegue" {
-            let nav = segue.destination as! UINavigationController
-            let svc = nav.topViewController as! GamePlayViewController
-            svc.playerName = nameTextField.text!
+            let navigationController = segue.destination as! UINavigationController
+            let gamePlayVC = navigationController.topViewController as! GamePlayViewController
+            gamePlayVC.playerName = nameTextField.text!
         }
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -9,11 +9,12 @@
 import Foundation
 
 struct HighScoresController {
-    
+
     func fetchItems(completion: @escaping ([HighscoreModel]?) -> Void) {
-        
+
         let url = URL(string: "https://ide50-thomashb.legacy.cs50.io:8080/list")!
-        
+
+        // Ontvang de JSON data, decodeer data en plaats data in een array van HighscoreModel objecten.
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
@@ -28,9 +29,10 @@ struct HighScoresController {
         }
         task.resume()
     }
-    
+
+    // Voer POST request uit met de naam en score uit een HighscoreModel object als query.
     func postItem(player: HighscoreModel) {
-        
+
         let url = URL(string: "https://ide50-thomashb.legacy.cs50.io:8080/list")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -39,9 +41,8 @@ struct HighScoresController {
         request.httpBody = postQuery.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             print(String(bytes: data!, encoding: .utf8)!)
-            
         }
-        
+
         task.resume()
     }
 }

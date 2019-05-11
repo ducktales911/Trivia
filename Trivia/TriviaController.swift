@@ -10,18 +10,19 @@ import Foundation
 import HTMLString
 
 struct TriviaController {
-    
+
     func fetchItems(matching query: [String: String], completion: @escaping ([QuestionModel]?) -> Void) {
-        
+
         let baseURL = URL(string: "https://opentdb.com/api.php?")!
-        
+
+        // Voegt alle queries toe aan de baseURL.
         guard let url = baseURL.withQueries(query) else {
             completion(nil)
             print("Generating URL with supplied queries failed.")
             return
-        }        
-        print(url)
-        
+        }
+
+        // Ontvang de JSON data, decodeer data en plaats data in een QuestionList object.
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data,
@@ -36,5 +37,3 @@ struct TriviaController {
         task.resume()
     }
 }
-
-
